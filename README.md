@@ -12,5 +12,7 @@ Steps to run.
 
 5. After adding student you are able to see data in Student List where you can delete , update and see details of Student.
 
+6. The Screen Shot is commited with the Code.
+
 Thank You.
 
