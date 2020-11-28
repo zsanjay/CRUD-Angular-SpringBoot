@@ -1,0 +1,46 @@
+<h3>Create Student</h3>
+<div [hidden]="submitted" style="width: 400px;">
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="Enter Name" id="name" required [(ngModel)]="student.name" name="name" #name="ngModel">
+      <span *ngIf =" name.status =='INVALID' && name.touched">Please enter name</span>
+    </div>
+    Gender
+    <div class="radio" >
+        <label *ngFor = "let gender of genders">
+        <input type="radio" 
+        name = "gender"
+        [value] = "gender"
+        [(ngModel)] = "student.gender" required>
+        {{gender}}
+        <br/>
+        </label>
+      </div>
+
+    <div class="form-group">
+      <label for="name">Address</label>
+      <input type="text" class="form-control" placeholder="Enter Address" id="address" required [(ngModel)]="student.address" name="address" #add="ngModel">
+      <span *ngIf =" add.status =='INVALID' && add.touched">Please enter address</span> 
+    </div>
+
+    <div class="form-group">
+        <label for="name">Phone No</label>
+        <input type="text" class="form-control" id="phoneNo" placeholder="Enter Phone Number" required [(ngModel)]="student.phoneNo" name="phoneNo" #phone="ngModel">
+        <span *ngIf ="phone.status =='INVALID' && phone.touched">Please enter phone number</span>
+
+      </div>
+
+      <div class="form-group">
+        <label for="name">Email Id</label>
+        <input type="text" class="form-control" id="email" placeholder="Enter Email" required email [(ngModel)]="student.email" name="email" #email="ngModel">
+        <span *ngIf =" email.status =='INVALID' && email.touched">Please enter a valid email</span>
+      </div>
+      
+    <button type="submit" class="btn btn-success" [disabled] ="f.status=='INVALID'">Submit</button>
+  </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+</div>
